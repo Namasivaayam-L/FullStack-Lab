@@ -1,20 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body{
+        background-color: black; 
+      }
+      .nav-bar{
+        display: flex; gap: 20px; justify-content: center;
+      }
+      .nav-links{
+        text-decoration:none;
+        color:black;
+      }
+      .nav-elements{
+        padding: 20px 30px;
+        background-color:yellow;
+        border-radius: 10%;
+      }
+      .email,.phone_number{
+        color:white;
+      }
+      .content-div{
+        height:90vh;
+        width:90vw;
+        /* display: inline-block; */
+      }
+      .Portfolio-div{
+        padding: 40px;
+        height:80vh;
+        width: 90vw;
+        display:flex;
+        justify-content: center;
+        gap:200px;
+      }
+      .Portfolio-table{
+        color:white;
+        border: 1px solid white;
+      }
+      td{
+        /* border-style: groove; */
+        padding: 15px;
+      }
+      #profile-pic-div{
+        color:white;
+        width:240px;
+        line-height: 25px;
+      }
+      #profile-pic-img{
+        width:200px;
+        height:200px;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Namasivaayam's Resume</title>
   </head>
-  <body style="background-color: black">
+  <body>
     <div>
-      <nav style="display: flex; gap: 5px; justify-content: center">
-        <a style="text-decoration:none;color:black" href=""><div style="padding: 20px 30px;background-color:yellow;border-radius: 20%;">Portfolio</div></a>
-        <a style="text-decoration:none;color:black" href=""><div style="padding: 20px 30px;background-color:yellow;border-radius: 20%;">Projects</div></a>
-        <a style="text-decoration:none;color:black" href=""><div style="padding: 20px 30px;background-color:yellow;border-radius: 20%;">Profile</div></a>
-        <a style="text-decoration:none;color:black" href=""><div style="padding: 20px 30px;background-color:yellow;border-radius: 20%;">Certification</div></a>
-        <a style="text-decoration:none;color:black" href=""><div style="padding: 20px 30px;background-color:yellow;border-radius: 20%;">Contact</div></a>
+      <nav class="nav-bar">
+        <a class="nav-links" href="#Portfolio"><div class="nav-elements">Portfolio</div></a>
+        <a class="nav-links" href="#Projects"><div class="nav-elements">Projects</div></a>
+        <a class="nav-links" href="#Profile"><div class="nav-elements">Profile</div></a>
+        <a class="nav-links" href=""><div class="nav-elements">Certification</div></a>
+        <a class="nav-links" href=""><div class="nav-elements">Contact</div></a>
+        <a class="nav-links" href="./assets/Namasivaaym L's Resume.pdf" download=""><div class="nav-elements">Download MyResume</div></a>
       </nav>
+    </div>
+    <div class="content-div" >
+      <div class="Portfolio-div">
+        <div>
+          <table class="Portfolio-table">
+            <tr>
+              <td>Name:</td>
+              <td>Namasivaayam L</td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Age:</td>
+              <td>19</td>
+            </tr>
+            <tr>
+              <td>DOB:</td>
+              <td>10.07.2003</td>
+            </tr>
+            <tr>
+              <td>Degree:</td>
+              <td>B.Tech Artificial Intelligence and Data Science</td>
+            </tr>
+            <tr>
+              <td>Batch:</td>
+              <td>2020-2024</td>
+            </tr>
+            <tr>
+              <td>College:</td>
+              <td>MEPCO Schlenk Engineering College, Sivakasi, <br/>Tamil Nadu, India</td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><a class="email" href="mailto:namasivaayam007vijay@gmail.com">namasivaayam007vijay@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td>Phone Number:</td>
+              <td><a class="phone_number" href="tel:+916383512055">+91 6383512055</a></td>
+            </tr>
+            <tr>
+              <td>City:</td>
+              <td>Madurai</td>
+            </tr>
+            <tr>
+              <td>Willing to Relocate?</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>State:</td>
+              <td>Tamil Nadu</td>
+            </tr>
+            <tr>
+              <td>Country:</td>
+              <td>India</td>
+            </tr>
+            <tr>
+              <td>Pin Code:</td>
+              <td>625018</td>
+            </tr>
+          </table>
+        </div>
+        <div id="profile-pic-div">
+          <img id="profile-pic-img" src="./assets/Namasivaayam L profile picture.jpg" alt="">
+          <section>Strong in Full Stack Development using MERN Stack with intuitive
+            problem solving skills. Profecient in React, Node.js, Javascript,
+            Python, C, C++, MongoDB, SQL, JAVA. Passionate about
+            implementing and launching new projects in Machine & Deep
+            Learning. Ability to translate business requirements into technical
+            solutions. Looking to start the career as an entry-level software
+            engineer with a reputed firm driven by technology.</section>
+        </div>
+      </div>
+      <!-- <div id="Projects" style="height:100vh;width:100vw">
+      </div>
+      <div id="Profile" style="height:100vh;width:100vw">
+      </div> -->
     </div>
   </body>
 </html>
