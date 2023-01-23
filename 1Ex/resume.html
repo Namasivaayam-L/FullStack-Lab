@@ -4,6 +4,8 @@
     <style>
       body{
         background-color: black; 
+        color:white;
+        font-size: 20px;
       }
       .nav-bar{
         display: flex; gap: 20px; justify-content: center;
@@ -11,6 +13,10 @@
       .nav-links{
         text-decoration:none;
         color:black;
+      }
+      .project-links{
+        text-decoration: underline;
+        color:white;
       }
       .nav-elements{
         padding: 20px 30px;
@@ -23,9 +29,8 @@
       .content-div{
         height:90vh;
         width:90vw;
-        /* display: inline-block; */
       }
-      .Portfolio-div{
+      #Portfolio-div{
         padding: 40px;
         height:80vh;
         width: 90vw;
@@ -38,7 +43,6 @@
         border: 1px solid white;
       }
       td{
-        /* border-style: groove; */
         padding: 15px;
       }
       #profile-pic-div{
@@ -47,9 +51,48 @@
         line-height: 25px;
       }
       #profile-pic-img{
-        width:200px;
-        height:200px;
+        width:210px;
+        height:260px;
       }
+      #Projects-div{
+        position: relative;
+        top: 10%;
+        /* height:100vh;
+        width:90vw; */
+        padding: 40px 40px;
+      }
+      #project-list-container{
+        display:flex;
+        justify-content: space-around;
+        flex-flow: row wrap;
+      }
+      #Certifications-div{
+        position: relative;
+        top: 10%;
+        height:100vh;
+        width:90vw;
+        padding: 0px 40px;
+      }
+      #certificates-container-div{
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap:25px;
+      }
+      .certificate-pdf{
+        width:280px;
+        height:200px;
+        border:2px solid yellow;
+      }
+      .certificate-heading{
+        text-align: center;
+      }
+      .nptel-certifcates{
+        width:250px;
+        /* height:500px */
+      }
+
     </style>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -59,16 +102,16 @@
   <body>
     <div>
       <nav class="nav-bar">
-        <a class="nav-links" href="#Portfolio"><div class="nav-elements">Portfolio</div></a>
-        <a class="nav-links" href="#Projects"><div class="nav-elements">Projects</div></a>
-        <a class="nav-links" href="#Profile"><div class="nav-elements">Profile</div></a>
-        <a class="nav-links" href=""><div class="nav-elements">Certification</div></a>
+        <a class="nav-links" href="#Portfolio-div"><div class="nav-elements">Portfolio</div></a>
+        <a class="nav-links" href="#Projects-div"><div class="nav-elements">Projects</div></a>
+        <!-- <a class="nav-links" href="#Profile"><div class="nav-elements">Profile</div></a> -->
+        <a class="nav-links" href="#Certifications-div"><div class="nav-elements">Certifications</div></a>
         <a class="nav-links" href=""><div class="nav-elements">Contact</div></a>
         <a class="nav-links" href="./assets/Namasivaaym L's Resume.pdf" download=""><div class="nav-elements">Download MyResume</div></a>
       </nav>
     </div>
     <div class="content-div" >
-      <div class="Portfolio-div">
+      <div id="Portfolio-div">
         <div>
           <table class="Portfolio-table">
             <tr>
@@ -140,10 +183,125 @@
             engineer with a reputed firm driven by technology.</section>
         </div>
       </div>
-      <!-- <div id="Projects" style="height:100vh;width:100vw">
+      <div id="Projects-div">
+        <h1>Projects Completed:</h1>
+        <div id="project-list-container">
+            <div>
+              <h4>1.<a class="project-links" href="https://github.com/Namasivaayam-L/stack-overflow-clone"> StackOverflow Clone + Addons:</a></h4>
+            <ul> 
+              <li>MERN Stack</li>
+              <li>Base Website is Stackoverflow</li>
+              <li>Added a chatbot, that replies to programming related questions</li>
+              <li>Added subscription plans (Gold,Silver,Free)</li>
+              <li>Included a social media application within this website</li>
+            </ul>
+          </div>
+          <div>
+            <h4> 2.<a class="project-links" href="https://github.com/Namasivaayam-L/erp_ads_dept"> Feedback Management System:</a></h4>
+            <ul> 
+              <li>MERN Stack</li>
+              <li>Students can provide feedback for individual courses attended by them.</li>
+              <li>Faculty can upload study materials through backpack for each course they handle</li>
+              <li>Student, Faculty, Admin have seperate Logins.</li>
+              <li>Admin/Faculty can view results of feedback for every course</li>
+              <li>Faculty can add courses and remove them</li>
+            </ul>
+          </div>
+          <div>
+            <h4>3. Handwriting Recognition </h4>
+            <ul>
+              <li>Python + Tensorflow</li>
+              <li>Implemented CNN</li>
+              <li>Used IAM Dataset</li>
+              <li>Model had 92.566% Accuracy</li>
+              <li>It verified new words apart from dataset</li>
+            </ul>
+          </div>
+          <div>
+            <h4>4.<a class="project-links" href="https://github.com/Namasivaayam-L/Ai-Powered-TicTacToe"> AI-Powered Tic Tac Toe</a></h4>
+            <ul>
+              <li>Python + PyQT5</li>
+              <li>Implemented Alpha - Beta Pruning (Min-Max Algorithm)</li>
+              <li>Three modes:
+                <ol>
+                  <li>AI vs Human</li>
+                  <li>AI vs AI</li>
+                  <li>Human vs Human</li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>5.<a class="project-links" href="https://github.com/Namasivaayam-L/psgitech_ihackfest_2022"> E-Commerce Website ONOE</a></h4>
+            <ul>
+              <li>MERN Stack</li>
+              <li>users can create account and place orders</li>
+              <li>The nearest vendor will be chosen, based on user's location</li>
+              <li>Filters are available</li>
+            </ul>
+          </div>
+          <div>
+            <h4>6.<a class="project-links" href="https://github.com/Namasivaayam-L/Telegram-Bot"> Telegram Bot</a></h4>
+            <ul>
+              <li>Node.js</li>
+              <li>Grammy Telegram bot module.</li>
+              <li>Used to maintain my own movie sharing telegram channel</li>
+              <li>It will greet new users.</li>
+              <li>It will prompt the users requestion for movies, appropriately.</li>
+              <li>It was hosted in Heroku.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div id="Profile" style="height:100vh;width:100vw">
-      </div> -->
+      <div id="Certifications-div">
+        <h1>Certifications</h1>
+        <div id="certificates-container-div"> 
+          <div>
+            <iframe class="certificate-pdf" src="./assets/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20221217-30-butsna.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">AWS Cloud Practioner</h4>
+          </div>
+          <div>
+            <img src="./assets/aws-academy-graduate-aws-academy-cloud-foundations.png"/>
+            <h4 class="certificate-heading">AWS Cloud Practioner Badge</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" src="./assets/DBMS - 1.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - DBMS - Part - 1</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" src="./assets/DBMS - 2.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - DBMS - Part - 2</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" src="./assets/Java .pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - Java</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" src="./assets/Java DS.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - Datastructures using Java</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" src="./assets/No Sql.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - NoSQL</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" style="position:relative;left:6%;" src="./assets/Software Engg & Agile Development.pdf#toolbar=0"></iframe>
+            <h4 class="certificate-heading">Infosys - <br> Software Engineering And <br> Agile Development</h4>
+          </div>
+          <div>
+            <iframe class="certificate-pdf" style="position:relative;left:6%;" src="./assets/html_css certification Namasivaayam L - 2022-01-22.pdf"></iframe>
+            <h4 class="certificate-heading">Html, Css</h4>
+          </div>
+          <div>
+            <img class="nptel-certifcates" src="./assets/Programming In Java Edited.jpg" alt="NPTEL - Java Programming">
+            <h4 class="certificate-heading">NPTEL - Java Programming</h4>
+          </div>
+          <div>
+            <img class="nptel-certifcates" src="./assets/Programming, Data Structures And Algorithms Using Python.jpg" alt="NPTEL - Datastructures and Algorithms Using Python">
+            <h4 class="certificate-heading">NPTEL - Datastructures and <br> Algorithms Using Python</h4>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
