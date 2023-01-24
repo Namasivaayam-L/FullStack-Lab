@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+        #event-list-div{
+            display: flex;
+            justify-content: space-evenly;
+            gap: 25px;
+            flex-flow: row wrap;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Registration Form</legend>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>College</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>
+                        <fieldset>
+                                <legend>Year</legend>
+                                <input type="radio" name="year" id="1year">I - Year
+                                <input type="radio" name="year" id="2year">II - Year
+                                <input type="radio" name="year" id="3ear">III - Year
+                                <input type="radio" name="year" id="4year">IV - Year
+                            </fieldset>
+                        </td>
+                    </tr>
+                <tr>
+                    <td>EMail</td>
+                    <td><input type="email" name="email-ip" id="email-ip"></td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input type="tel" name="phnum-ip" id="phnum-ip"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><textarea name="addr-ta" id="addr-ta" cols="40" rows="8"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Date Of Event</td>
+                    <td><input type="datetime-local" name="date-ip" id="date-ip"></td>
+                </tr>
+                <tr>
+                    <td>No of Interested Events:</td>
+                    <td><input type="range" name="no-of-events-ip" id="no-of-events-ip" min="0" max="10"></td>
+                </tr>
+                <tr>
+                    <td>Event List</td>
+                    <td style="width:30%;">
+                        <div id="event-list-div">
+                            <div> <input type="checkbox" name="web-designing" id="web-designing"> web-designing  </div>
+                            <div> <input type="checkbox" name="web-designing" id="web-designing"> web-designing  </div>
+                            <div> <input type="checkbox" name="website-cloning" id="website-cloning">website-cloning  </div>
+                            <div> <input type="checkbox" name="idea-hackathon" id="idea-hackathon">idea-hackathon  </div>
+                            <div> <input type="checkbox" name="debate" id="debate">debate  </div>
+                            <div> <input type="checkbox" name="lemon-in-spoon" id="lemon-in-spoon">lemon-in-spoon  </div>
+                            <div> <input type="checkbox" name="musical-chair" id="musical-chair">musical-chair  </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <select name="degree-select" id="degree-select">
+                            <option value="">Choose Degree</option>
+                            <option value="">B.E</option>
+                            <option value="">B.Tech</option>
+                            <option value="">B.Arch</option>
+                            <option value="">MBA</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="dept-select" id="dept-select">
+                            <option value="">Choose Department</option>
+                            <option value="">AIDS</option>
+                            <option value="">CSE</option>
+                            <option value="">IT</option>
+                            <option value="">BIOTECH</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>
