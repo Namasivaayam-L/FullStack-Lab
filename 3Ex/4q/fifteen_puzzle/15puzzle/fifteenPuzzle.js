@@ -24,33 +24,33 @@ function startNewGame() {
   rows = 4;
   columns = 4;
   textMoves.innerHTML = moves;
-  // Create the proper board size.
+  
   arrayForBoard = new Array(rows);
   for (var i = 0; i < rows; i++) {
     arrayForBoard[i] = new Array(columns);
   }
-  // Set up a temporary array for
-  // allocating unique numbers.
+  
+  
   arrayHasNumberBeenUsed = new Array(rows * columns);
   for (var i = 0; i < rows * columns; i++) {
     arrayHasNumberBeenUsed[i] = 0;
   }
 
-  // Assign random numbers to the board.
+  
   for (var i = 0; i < rows * columns; i++) {
     randomNumber = Math.floor(Math.random() * rows * columns);
-    // If our random numer is unique, add it to the board.
+    
     if (arrayHasNumberBeenUsed[randomNumber] == 0) {
       arrayHasNumberBeenUsed[randomNumber] = 1;
       arrayOfNumbers.push(randomNumber);
     }
-    else // Our number is not unique. Try again.
+    else 
     {
       i--;
     }
   }
 
-  // Assign numbers to the game board.
+  
   count = 0;
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < columns; j++) {
@@ -73,9 +73,9 @@ function showTable() {
       else {
         outputString += "<td class=\"tile\" onclick=\"moveThisTile(" + i + ", " + j + ")\">" + arrayForBoard[i][j] + "</td>";
       }
-    } // end for (var j = 0; j < columns; j++)
+    } 
     outputString += "</tr>";
-  } // end for (var i = 0; i < rows; i++)
+  } 
 
   table.innerHTML = outputString;
 }
@@ -98,8 +98,8 @@ function moveThisTile(tableRow, tableColumn) {
 }
 
 function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
-  // The following variables an if else statements
-  // make the function work for all directions.
+  
+  
   rowOffset = 0;
   columnOffset = 0;
   if (direction == "up") {
@@ -115,8 +115,8 @@ function checkIfMoveable(rowCoordinate, columnCoordinate, direction) {
     columnOffset = 1;
   }
 
-  // Check if the tile can be moved to the spot.
-  // If it can, move it and return true.
+  
+  
   if (rowCoordinate + rowOffset >= 0 && columnCoordinate + columnOffset >= 0 &&
     rowCoordinate + rowOffset < rows && columnCoordinate + columnOffset < columns
   ) {
@@ -148,10 +148,10 @@ function checkIfWinner() {
 
 function incrementMoves() {
   moves++;
-  if (textMoves) // This is nessessary.
+  if (textMoves) 
   {
     textMoves.innerHTML = moves;
   }
 }
 
-window.addEventListener("load", start, false); // This event listener makes the function start() execute when the window opens. 
+window.addEventListener("load", start, false); 
