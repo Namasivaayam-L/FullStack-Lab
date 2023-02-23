@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 router.use(bodyParser.urlencoded({
   extended: true
 }));
-router.listen(4000, () => console.log('Server fired up at port ', 4000))
+router.listen(3000, () => console.log('Server fired up at port ', 4000))
 
 router.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
@@ -23,7 +23,7 @@ router.post('/sendMail', async (req, res) => {
 
   let info = await transporter.sendMail({
     from: '9698939924naveen@gmail.com',
-    to: "erenmikasaattacktitan007@gmail.com,9698939924naveen@gmail.com," + req.body.email,
+    to: "9698939924naveen@gmail.com," + req.body.email,
     subject: "Hello ✔",
     text: "Hello world?",
     html: "<b>Hello world?</b>",
