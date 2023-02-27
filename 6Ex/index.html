@@ -7,6 +7,57 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="/sendFeedback" method="post">
+        <h3>YouTube Usage Habits </h3>
+        <table>
+            <tr>
+                <td>1. What is your gender?</td>
+                <td>
+                    <input type="radio" name="gender" id="male_ip" value="Male">Male
+                    <input type="radio" name="gender" id="female_ip" value="Female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>2. What is your age?</td>
+                <td>
+                    <input type="radio" name="age" id="age_ip_1" value="13-19">13-19   
+                    <input type="radio" name="age" id="age_ip_2" value="20-30">20-30
+                    <input type="radio" name="age" id="age_ip_3" value="30-50">30-50
+                    <input type="radio" name="age" id="age_ip_4" value="50-100">50-100
+                </td>
+            </tr>
+            <tr>
+                <td>3. What is your major?</td>
+                <td><textarea name="major_ip" id="major_ip" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td>4. Do you have a YouTube account?</td>
+                <td>
+                    <input type="radio" name="yt_acc" id="" value="yes">YES
+                    <input type="radio" name="yt_acc" id="" value="no">NO
+                </td>
+            </tr>
+            <tr>
+                <td>5. Do you have a YouTube Channel?</td>
+                <td>
+                    <input type="radio" name="yt_channel" id="" value="yes">YES
+                    <input type="radio" name="yt_channel" id="" value="no">NO
+                </td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>RollNo:</td>
+                <td><input type="text" name="rollno"></td>
+            </tr>
+            <tr>
+                <td>Phone number:</td>
+                <td><input type="tel" name="phno" id=""></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

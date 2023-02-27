@@ -3,7 +3,7 @@
         "minimap.background": "#00000000",
         "scrollbar.shadow": "#00000000"
     },
-    "superBG.opacity": 58,
+    "superBG.opacity": 18,
     "superBG.images": [],
     "superBG.url": "http://locahost:3000"
 }
