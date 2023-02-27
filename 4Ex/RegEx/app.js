@@ -1,0 +1,1 @@
+console.log("aaewewedsdewddsxac".replace(new RegExp("[Aa]{2,}"), "b"));
