@@ -16,9 +16,7 @@ router.use(bodyParser.urlencoded({extended: true}));
   
 router.listen(3000,()=>console.log('Server Fired Up at 3000'))
 
-router.get('/', (req, res) => {
-    res.sendFile(__dirname+'/index.html')
-})
+router.get('/', (req, res) => {res.sendFile(__dirname+'/index.html')})
 
 router.post('/sendFeedback', async(req, res) => {
     let { name, rollno, phno, ...survey } = req.body

@@ -3,9 +3,8 @@ const router = express()
 const bodyParser = require('body-parser')
 const nodemailer = require("nodemailer");
 
-router.use(bodyParser.urlencoded({
-  extended: true
-}));
+router.use(bodyParser.urlencoded({ extended: true }));
+
 router.listen(3000, () => console.log('Server fired up at port ', 4000))
 
 router.get('/', (req, res) => {

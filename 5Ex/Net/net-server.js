@@ -4,7 +4,7 @@ var server = net.createServer(function(connection) {
     connection.on('end', function() {
         console.log('Client disconnected.');
     });
-    connection.write('Hello World!\n');
+    connection.write('Namasivaayam L!\n');
     connection.pipe(connection);
 });
 server.listen(5000, function() {
