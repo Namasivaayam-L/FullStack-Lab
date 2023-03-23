@@ -1,0 +1,2 @@
+image slider
+search box, with suggestions
