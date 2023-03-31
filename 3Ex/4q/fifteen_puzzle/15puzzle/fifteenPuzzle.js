@@ -55,7 +55,6 @@ function startNewGame() {
   for (var i = 0; i < rows; i++) {
     for (var j = 0; j < columns; j++) {
       arrayForBoard[i][j] = arrayOfNumbers[count];
-
       count++;
     }
   }
@@ -145,7 +144,7 @@ function checkIfWinner() {
 
   return true;
 }
-
+ 
 function incrementMoves() {
   moves++;
   if (textMoves) 

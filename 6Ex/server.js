@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost:27017/FullStack-Lab');
 
-const Feedback = mongoose.model('Feedback-6Ex',
+const Feedback = mongoose.model('Feedback6Ex',
                 new mongoose.Schema({
                     name: String,
                     rollno: String,
@@ -24,3 +24,4 @@ router.post('/sendFeedback', async(req, res) => {
     await new Feedback({name,rollno,phno,survey}).save()
     console.log(await Feedback.find());
 })
+

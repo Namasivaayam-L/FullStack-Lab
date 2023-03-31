@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 
 const MarkList = () => {
   var marks = {
@@ -14,6 +14,16 @@ const MarkList = () => {
       YOP:['NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022'],
       ResultStatus:['Pass','Pass','Pass','Pass','Pass','Pass','Pass','Pass','Pass','Pass','Pass']
   }
+  var totCreds = marks.Credit.reduce((x,y)=> x+y)
+  var cgpa={
+      'A':8,
+      'A+':9,
+      'O':10,
+    }
+  var totCgpa = 0.0
+  for(let i=0;i<marks.Grade.length;i++){
+    totCgpa+=cgpa[marks.Grade[i]]*marks.Credit[i]
+  }
   return (
     React.createElement('div', {},
         React.createElement('table', {border:'1px solid black'},
@@ -26,7 +36,9 @@ const MarkList = () => {
                         )
                     ))
                 )
-            ))
+            )),
+            React.createElement('td',{},'Total'),
+            React.createElement('td',{},totCgpa/totCreds),
         )
     )
   )

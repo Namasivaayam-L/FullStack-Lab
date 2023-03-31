@@ -1,0 +1,309 @@
+1. Marklist:
+import React,{useEffect,useState} from 'react'
+
+const MarkList = () => {
+  var marks = {
+      Sno:Array.from({length:11},(val,idx)=>idx+1),
+CourseCode:['19AD581','19CSA01','19CSP01','19AD501','19AD502','19ADC01',
+      '19AD551','19AD552','OCS70','VCS09','19HSM02'],
+      CourseName: ['NoSql Databases', 'Internet Programming', 
+      'Free Open Source Software', 'Computer Networking Principles',
+        'Machine Learning Essentials', 'DATA ENGINEERING USING R',
+ 'Computer Networking Laboratory', 'Machine Learning Techniques Laboratory',
+'Programming, Data Structures and Algorithms using Python',
+ 'AWS Certified Cloud Practitioner ',
+  ' Career Planning and Professional Essentials Laboratory'],
+      Credit:[4,3,3,3,3,3,1.5,1.5,1,1,1],
+      Internal:[81,90,90,82,79,84,98,92,-1,-1,94],
+      Grade:['A','A+','A+','A','A','A','O','A+','A+','A','A+'],
+      YOA:['NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022',
+      'NOV2022','NOV2022','NOV2022','NOV2022','NOV2022'],
+      YOP:['NOV2022','NOV2022','NOV2022','NOV2022','NOV2022','NOV2022',
+      'NOV2022','NOV2022','NOV2022','NOV2022','NOV2022'],
+      ResultStatus:['Pass','Pass','Pass','Pass','Pass','Pass','Pass',
+      'Pass','Pass','Pass','Pass']
+  }
+  var totCreds = marks.Credit.reduce((x,y)=> x+y)
+  var cgpa={
+      'A':8,
+      'A+':9,
+      'O':10,
+    }
+  var totCgpa = 0.0
+  for(let i=0;i<marks.Grade.length;i++){
+    totCgpa+=cgpa[marks.Grade[i]]*marks.Credit[i]
+  }
+  return (
+    React.createElement('div', {},
+        React.createElement('table', {border:'1px solid black'},
+            marks.Sno.map((idx) => (
+                React.createElement('tr', {},
+                    Object.keys(marks)
+                        .map((key) => (
+                            React.createElement('td', {padding:'0px 20px'},
+                            <p> {marks[key][idx-1]} </p>
+                        )
+                    ))
+                )
+            )),
+            React.createElement('td',{},'Total'),
+            React.createElement('td',{},totCgpa/totCreds),
+        )
+    )
+  )
+}
+
+export default MarkList
+
+2.Todo App
+import React, { useEffect, useState } from "react";
+import Todo from "./Todo";
+const TodoList = () => {
+  const [completed, setCompleted] = useState(3);
+  const [missed, setMissed] = useState(1);
+  const [sno, setSno] = useState(4)
+  const [taskName, setTaskName] = useState('')
+  const [taskDesc, setTaskDesc] = useState('')
+  const [totalTasks, setTotalTasks] = useState(0)
+  const [todos, setTodos] = useState(
+    [
+      {
+        sno: 1,
+        name: "Full stack Lab",
+        desc: "Need to Complete ex-7,8",
+        isCompleted:false,
+        isMissed:false
+      },
+      {
+        sno: 2,
+        name: "Deep Learning Lab",
+        desc: "Need to Complete ex-4,5,6",
+        isCompleted:false,
+        isMissed:false
+      },
+      {
+        sno: 3,
+        name: "POSE Lab",
+        desc: "Need to Complete Reveiew-2",
+        isCompleted:false,
+        isMissed:false
+      },
+      {
+        sno: 4,
+        name: "Full stack Lab",
+        desc: "Need to Complete ex-7,8",
+        isCompleted:true,
+        isMissed:false
+      },
+      {
+        sno: 5,
+        name: "Deep Learning Lab",
+        desc: "Need to Complete ex-4,5,6",
+        isCompleted:false,
+        isMissed:true
+      },
+      {
+        sno: 6,
+        name: "POSE Lab",
+        desc: "Need to Complete Reveiew-2",
+        isCompleted:false,
+        isMissed:false
+      },
+    ]
+  )
+  useEffect(() => { setTotalTasks(todos.length)  },[])
+
+  const styles = {
+    navbar: {
+      display: "flex",
+      justifyContent: "space-evenly",
+    },
+    addTaskBtn: {
+      padding: "10px 30px",
+    },
+    div: {
+      display: 'flex',
+      gap:'20px'
+    }
+  };
+  const addTask = () => {
+    setTodos([...todos,{
+      sno: sno,
+      name: taskName,
+      desc:taskDesc
+    }])
+    console.log(sno,taskName,taskDesc,todos);
+    setSno(sno+1)
+    setTaskName('')
+    setTaskDesc('')
+    setTotalTasks(totalTasks+1)
+  }
+  const removeTask = (sno) => {
+    setTodos(todos.filter(todo=>todo.sno!==sno))
+  }
+  const sortByCompleted = (sno) => {
+    setTodos(todos.filter(todo=>todo.isCompleted===true))
+  }
+  const sortByMissed = (sno) => {
+    setTodos(todos.filter(todo=>todo.isMissed===true))
+  }
+  const completedTask = (count) => {
+    setCompleted(completed + count)
+    setTotalTasks(totalTasks-count)
+  }
+  const missedTask = (count) => {
+    setMissed(missed + count)
+    setTotalTasks(totalTasks+count)
+  }
+  return (
+    <div>
+      <div style={styles.navbar}>
+        <h2>Todo App</h2>
+        <h3>Tasks Remaining: { totalTasks }</h3>
+        <h3>Total Completed Tasks: {completed}</h3>
+        <h3> Total Missed Tasks: {missed}</h3>
+        <div style={styles.div}>
+          <button style={styles.addTaskBtn} onClick={addTask}>Add Task+
+          </button>
+          <input onChange={(e)=>setTaskName(e.target.value)} type="text"
+           placeholder="Enter task name" />
+        <input onChange={(e)=>setTaskDesc(e.target.value)} type="textarea"
+           placeholder="Enter task description" />
+        </div>
+      </div>
+      {todos.map((task) => (
+        <Todo sno={task.sno} name={task.name} desc={task.desc}
+          removeTask={removeTask} missedTask={missedTask}
+          completedTask={completedTask}
+          sortByMissed={sortByMissed}
+          sortByCompleted={sortByCompleted}
+         />
+      ))}
+      <button onClick={sortByCompleted}>Completed</button>
+      <button onClick={sortByMissed}>Missed</button>
+    </div>
+  );
+};
+
+export default TodoList;
+
+import React,{useState} from "react";
+
+const Todo = (props) => {
+    const [isCompleted, setIsCompleted] = useState(false)
+    const [isMissed, setIsMissed] = useState(false)
+    const styles = {
+
+        divStyle: {
+            border: '1px solid black',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems:'center'
+        },
+        completedStyle: {
+            textDecoration:  isCompleted && 'line-through'
+        },
+        taskInfoDiv: {
+            textAlign:'left'
+        },
+        btns: {
+            padding:'10px 30px'
+        }
+    }
+  return (
+    <div style={ styles.divStyle }>
+      <div>
+        <p>{ props.sno }</p>
+      </div>
+      <div>
+              <button style={styles.btns} onClick={() => 
+              { setIsCompleted(!isCompleted);
+props.completedTask(isCompleted?-1:1)}}>
+ {isCompleted?'Not Completed':'Completed'}</button>
+      </div>
+      <div style={styles.taskInfoDiv}>
+        <h1 style={ styles.completedStyle }>{props.name}</h1>
+        <h3 style={ styles.completedStyle }>{props.desc}</h3>
+      </div>
+      <div>
+              <button style={styles.btns} onClick={() =>
+    { setIsMissed(!isMissed); props.missedTask(isMissed?-1:1)}}>
+     {isMissed?'Not Missed':'Missed'}</button>
+      </div>
+      <div>
+        <button style={styles.btns} onClick={()=>
+        props.removeTask(props.sno)}> Delete</button>
+      </div>
+    </div>
+  );
+};
+
+export default Todo;
+
+3.Weather App
+import React, { useEffect, useState } from "react";
+
+export function Weather() {
+    const [lat, setLat] = useState([]);
+    const [long, setLong] = useState([]);
+    const [weather, setWeather] = useState({
+      description: "",
+      main: ""
+    });
+    const [wind, setWind] = useState({ speed: 0, deg: 0, gust: 0 })
+    const [main, setMain] = useState({})
+    const [name, setName] = useState('')
+    useEffect(() => {
+      const fetchData = async () => {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          setLat(position.coords.latitude);
+          setLong(position.coords.longitude);
+        });
+        await fetch(`https://api.openweathermap.org/data/2.5/weather
+        ?lat=${lat}&lon=${long}&appid=36f8b9d93a5463ca919059f58b8faa6c`)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result['weather'][0])
+          setWind(result['wind'])
+          setMain(result['main'])
+          setName(result['name'])
+          console.log(result);
+        });
+      }
+      fetchData();
+    }, [lat,long])
+    return (
+      <div>
+        <table styles={{border:'1px solid black'}}>
+          <tr>
+            <td>Name:</td>
+            <td>{name}</td>
+          </tr>
+          {
+            Object.keys(wind).map((key)=>(
+              <tr>
+                <td>{key}:</td>
+                <td>{wind[key]}</td>
+              </tr>
+            ))
+          }
+          {
+            Object.keys(weather).map((key)=>(
+              <tr>
+                <td>{key}:</td>
+                <td>{weather[key]}</td>
+              </tr>
+            ))
+          }
+          {
+            Object.keys(main).map((key)=>(
+              <tr>
+                <td>{key}:</td>
+                <td>{main[key]}</td>
+              </tr>
+            ))
+          }
+        </table>
+      </div>
+    );
+  }
