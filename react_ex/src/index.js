@@ -8,6 +8,8 @@ import Todo2 from './7Ex/TodoList/todo2';
 import { Weather } from './7Ex/weather';
 import ImgSlider from './8Ex/imgSlider';
 import SearchBox from './8Ex/searchBox';
+import Counter from './10Ex/counter'
+import BookShelf from './10Ex/bookShelf'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -15,7 +17,10 @@ root.render(
     {/* <TodoList/> */}
     {/* <Weather/> */}
     {/* <ImgSlider /> */}
-    <SearchBox/>
+    {/* <SearchBox/> */}
     {/* <Todo2/> */}
+    {/*<Counter/>*/}
+    {/*<BookShelf/>*/}
+    <BookShelf/>
   </React.StrictMode>
 );

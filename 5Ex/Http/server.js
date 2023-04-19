@@ -6,5 +6,5 @@ http.createServer(function (request, response) {
     console.log(value.replace(reg,""));
     response.write(mat);
     response.end();
-}).listen(4000);
-console.log('Server running at localhost:4000');
+}).listen(5000);
+console.log('Server running at localhost:5000');

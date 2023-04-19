@@ -8,9 +8,9 @@ const ImgSlider = () => {
     const [imgs,] = useState(images)
     const styles = {
         contdiv: {
-            width: '95vw',
-            height: '95vh',
-            display: 'flex',
+                width: '95vw',
+                height: '95vh',
+                display: 'flex',
             overflow:'hidden',
             position:'relative',
             left:'5%',
