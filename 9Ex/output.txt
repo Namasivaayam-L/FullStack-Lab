@@ -1,0 +1,134 @@
+interface bankAcc{
+    id: number,
+    name: string,
+    balance: number,
+}
+class Bank{
+    withdraw(cust: bankAcc, amnt: number):number {
+        if(cust.balance>amnt){
+            cust.balance-=amnt
+            return cust.balance
+        }else 
+            return -1
+    }
+    deposit(cust:bankAcc, amnt:number):number{
+        cust.balance+=amnt
+        return cust.balance
+    }
+    chkBalance(cust:bankAcc):number{
+        return cust.balance
+    }
+    transfer(c1:bankAcc,c2:bankAcc,amnt:number):number[]{
+        if(c1.balance>amnt){
+            c1.balance-=amnt
+            c2.balance+=amnt
+            return [c1.balance,c2.balance]
+        }else return [-1]
+    }
+}
+let c1:bankAcc = {
+    id: 1,
+    name: 'Namasivaayam',
+    balance: 10000,
+}
+let c2:bankAcc = {
+    id: 2,
+    name: 'Namachu',
+    balance: 100,
+}
+let bank = new Bank()
+let w:number = bank.withdraw(c1,1000)
+console.log(w === -1?'Insufficient balance':'Current balance'+w)
+let d:number = bank.deposit(c1,1000)
+console.log('Current balance'+w)
+let b:number = bank.chkBalance(c1)
+console.log('Current balance'+b)
+let t:number[] = bank.transfer(c1,c2,5000)
+console.log(t[0] === -1?'Insufficient balance':'Current balance: C1 '+t[0]+' C2 '+t[1])
+
+interface product{
+    id:number,
+    name:string,
+    price:number,
+    quant:number
+}
+var prods:product[] = [
+    {
+        id:1,
+        name:'biscuit',
+        price:10,
+        quant:13,
+    },
+    {
+        id:2,
+        name:'bun',
+        price:30,
+        quant:5,
+    },
+    {
+        id:3,
+        name:'halidrams',
+        price:25,
+        quant:10,
+    },
+    {
+        id:4,
+        name:'jaggery',
+        price:100,
+        quant:20,
+    },
+    {
+        id:5,
+        name:'ground nut',
+        price:20,
+        quant:15,
+    },
+]
+const getProductByID = (id:number):product => prods.filter(p=>p.id===id)[0]
+
+console.log(getProductByID(2))
+
+interface iQueue<T>{
+    enqueue(item: T):void
+    dequeue():T | undefined
+    size():number
+}
+class Queue<T> implements iQueue<T> {
+    private storage: T[] = [];
+  
+    constructor(private capacity: number = Infinity) {}
+  
+    enqueue(item: T): void {
+      if (this.size() === this.capacity) {
+        throw Error("Queue has reached max capacity, you cannot add more items");
+      }
+      this.storage.push(item);
+    }
+    dequeue(): T | undefined {
+      return this.storage.shift();
+    }
+    size(): number {
+      return this.storage.length;
+    }
+  }
+  
+  const queue = new Queue<string>();
+  
+  queue.enqueue("A");
+  queue.enqueue("B");
+  
+  console.log(queue.size());   
+  console.log(queue.dequeue());
+  console.log(queue.size());   
+  console.log(queue.dequeue());
+  
+  const queue = new Queue<number>();
+  
+  queue.enqueue("A");
+  queue.enqueue("B");
+  
+  console.log(queue.size());   
+  console.log(queue.dequeue());
+  console.log(queue.size());   
+  console.log(queue.dequeue());
+  

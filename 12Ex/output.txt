@@ -1,0 +1,45 @@
+import './App.css';
+import React from "react";
+// import axios from 'axios'
+function App() {
+    const handleClick = async(e) => {
+        e.preventDefault();
+        await fetch('http://localhost:5000/recvReq', { data: 'HI there from Client' })
+            .then(res => {console.log(res.data)})
+    }
+  return (
+      <div>
+          <button onClick={handleClick}>Contact Server</button>
+      </div>
+  );
+}
+
+export default App;
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+const app = require("express")();
+const cors = require("cors");
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(cors())
+
+app.post("/recvReq", (req, res) => {
+    console.log('hi');
+    console.log("Data Received:", req.body.data);
+    res.send("Successfully Received");
+})
+
+app.listen(5000, () => {
+    console.log("Server fired up on 5000");
+})

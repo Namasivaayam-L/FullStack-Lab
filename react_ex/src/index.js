@@ -20,7 +20,7 @@ root.render(
     {/* <SearchBox/> */}
     {/* <Todo2/> */}
     {/*<Counter/>*/}
+    <Counter/>
     {/*<BookShelf/>*/}
-    <BookShelf/>
   </React.StrictMode>
 );
